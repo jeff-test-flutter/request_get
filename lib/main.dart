@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:network_request/repository.dart';
 
-void main() => runApp(MyApp());
+void main() {
+
+
+  StoryRepository.shared.getStoryData().listen((stories) {
+    for (final story in stories.stories) {
+      print('${story.title}');
+    }
+  });
+
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
