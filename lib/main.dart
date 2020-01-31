@@ -4,7 +4,7 @@ import 'package:network_request/repository.dart';
 void main() {
 
 
-  StoryRepository.shared.getStoryData().listen((stories) {
+  StoryRepository.shared.getStoryDataWithManualModel().listen((stories) {
     for (final story in stories.stories) {
       print('${story.title}');
     }
