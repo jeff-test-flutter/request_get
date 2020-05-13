@@ -5,7 +5,7 @@ final _host = 'news-at.zhihu.com';
 final uri = Uri.http(_host, '/api/3/stories/latest');
 
 Future getData({Uri uri}) async {
-  final httpClient = HttpClient();
+  final httpClient = HttpClient()..connectionTimeout = Duration(seconds: 2);
   final request = await httpClient.getUrl(uri);
   final response = await request.close();
   return await response.transform(utf8.decoder).join();
